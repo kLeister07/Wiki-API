@@ -17,11 +17,17 @@ app.use(express.static("public"));
 main().catch(err => console.log(err));
 async function main() {
   // For local server
-  // await mongoose.connect('mongodb://localhost:27017/wikiDB');
+  await mongoose.connect('mongodb://localhost:27017/wikiDB');
   // For mongoDB atlas
-  await mongoose.connect('mongodb+srv://admin-kevin:toyotamr2@atlascluster.4jtuj3y.mongodb.net/wikiDB');
-  // Create schema
-
+//   await mongoose.connect('mongodb+srv://admin-kevin:toyotamr2@atlascluster.4jtuj3y.mongodb.net/wikiDB');
+ 
+// Create schema
+const articleSchema = {
+    title: String,
+    content: String
+};
+// Create model
+const Article = mongoose.model("Article", articleSchema);
 
 
 
